@@ -45,11 +45,11 @@ Player.prototype.handleInput = function(direction) {
     switch(direction) {
         case 'left' : this.x -= 100
         break
-        case 'up' : this.y -= 100
+        case 'up' : this.y -= 85
         break
         case 'right' : this.x += 100
         break
-        case 'down' : this.y += 100
+        case 'down' : this.y += 85
         break
     }
 }
@@ -57,7 +57,7 @@ Player.prototype.handleInput = function(direction) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-let allEnemies = [new Enemy(), new Enemy(), new Enemy()]
+let allEnemies = [new Enemy(0, 60), new Enemy(0, 145), new Enemy(0, 225)]
 
 let player = new Player()
 
