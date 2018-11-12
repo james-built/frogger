@@ -1,20 +1,21 @@
 // Enemies our player must avoid
-var Enemy = function(loc) {
+var Enemy = function(x, y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.loc = loc
-    this.speed = 
+    this.x = x
+    this.y = y
+    this.speed = Math.random()
 };
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    this.loc = 
-    if(this.loc == Player.loc)
+    this.x++
+    if(this.loc == Player.loc){}
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -28,19 +29,18 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-let Player = function(loc) {
+let Player = function() {
     this.sprite = 'images/char-boy.png'
-    this.loc = loc
+    this.x = 200
+    this.y = 400
 }
 
-Player.prototype.update = function() {
+Player.prototype.update = function(dt) {
 
 }
-
 Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite))
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y)
 }
-
 Player.prototype.handleInput = function(direction) {
     switch(direction) {
         case 'left' :
